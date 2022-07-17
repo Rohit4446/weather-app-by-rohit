@@ -12,12 +12,14 @@ const Search = ({ getLocation }) => {
     return fetch(`${GEO_API_URL}/cities?namePrefix=${data}`, geoApiOptions)
       .then((response) => response.json())
       .then((response) => {
-        //console.log(response);
-       response.data[0] !== undefined || null ? setSearch({
-          latitude: response.data[0].latitude,
-          longitude: response.data[0].longitude,
-          status: true
-        }) : alert("please correct location");
+        // console.log(response);
+        response.data[0] !== undefined || null
+          ? setSearch({
+              latitude: response.data[0].latitude,
+              longitude: response.data[0].longitude,
+              status: true
+            })
+          : alert("please correct location");
       });
   };
   // console.log(search);

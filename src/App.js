@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./styles.css";
 import Search from "./Search";
 import CurrentWeather from "./Current-weather";
+import Forecast from "./Forecast";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
       .then(async (response) => {
         const weatherResponse = await response[0].json();
         const forcastResponse = await response[1].json();
-        //console.log(weatherResponse);
+        // console.log(forcastResponse.list);
         setCurrentWeather({
           weather: weatherResponse.weather,
           main: weatherResponse.main,
@@ -37,7 +38,7 @@ const App = () => {
           country: weatherResponse.sys.country
         });
 
-        //  setForecast({ city: searchData.label, ...forcastResponse });
+        setForecast(forcastResponse.list);
       })
       .catch(console.log("error"));
   };
@@ -52,6 +53,7 @@ const App = () => {
       <Search getLocation={getLocation} />
 
       {currentWeather !== null && <CurrentWeather data={currentWeather} />}
+      {forecast !== null && <Forecast data={forecast} />}
     </div>
   );
 };
