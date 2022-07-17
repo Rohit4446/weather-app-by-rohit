@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
-import Search from "./Search";
-import CurrentWeather from "./Current-weather";
-import Forecast from "./Forecast";
+import Search from "./search/Search";
+import CurrentWeather from "./current-weather/Current-weather";
+import Forecast from "./Forecast/Forecast";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
 
 const App = () => {

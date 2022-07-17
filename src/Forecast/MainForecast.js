@@ -1,9 +1,15 @@
-import React from "react";
-
+import React, { useState } from "react";
+import InnerForecast from "./InnerForecast";
 const MainForecast = ({ item, forecastDays, idx }) => {
+  const [show, setShow] = useState(false);
   return (
-    <>
-      <div className="daily-item">
+    <div>
+      <div
+        className="daily-item"
+        onClick={() => {
+          setShow(!show);
+        }}
+      >
         <img
           src={`icons/${item.weather[0].icon}.png`}
           className="icon-small"
@@ -15,7 +21,9 @@ const MainForecast = ({ item, forecastDays, idx }) => {
           {Math.round(item.main.temp_max)}°C /{Math.round(item.main.temp_min)}°C
         </label>
       </div>
-    </>
+
+      {show ? <InnerForecast item={item} key={idx + forecastDays} /> : ""}
+    </div>
   );
 };
 
