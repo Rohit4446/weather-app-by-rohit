@@ -26,7 +26,7 @@ const Forecast = ({ data }) => {
 
       {data.splice(0, 7).map((item, idx) => {
         return (
-          <div>
+          <div id="mainForecast">
             <MainForecast
               key={idx + forecastDays}
               item={item}

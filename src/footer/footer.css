@@ -1,0 +1,11 @@
+.social-panel {
+  margin-bottom: -10px;
+  font-size: 15px;
+}
+
+.social-panel span {
+  color: firebrick;
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+}

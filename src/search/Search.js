@@ -21,9 +21,9 @@ const Search = ({ getLocation }) => {
           longitude: respo.data[0].longitude,
           status: true
         })
-      : alert("please correct location");
+      : alert("please enter correct location");
   };
-  // console.log(search);
+
   return (
     <div id="search">
       <input
@@ -37,9 +37,7 @@ const Search = ({ getLocation }) => {
 
       <button
         onClick={() => {
-          data !== null
-            ? loadOptions(data) && setData(null)
-            : alert("please give a locatioons");
+          data !== null ? loadOptions(data) : alert("please enter a locations");
         }}
         id="button-input"
       >

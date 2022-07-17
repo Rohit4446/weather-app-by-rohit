@@ -3,7 +3,9 @@ import "./styles.css";
 import Search from "./search/Search";
 import CurrentWeather from "./current-weather/Current-weather";
 import Forecast from "./Forecast/Forecast";
+import Home from "./home/Home";
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
+import Footer from "./footer/Footer";
 
 const App = () => {
   const [location, setLocation] = useState({
@@ -52,8 +54,13 @@ const App = () => {
     <div className="App">
       <Search getLocation={getLocation} />
 
-      {currentWeather !== null && <CurrentWeather data={currentWeather} />}
+      {currentWeather !== null ? (
+        <CurrentWeather data={currentWeather} />
+      ) : (
+        <Home />
+      )}
       {forecast !== null && <Forecast data={forecast} />}
+      <Footer />
     </div>
   );
 };
